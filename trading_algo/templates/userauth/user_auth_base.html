@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="row primary-row">
+    <div class="col-lg-8 left-section">
+        <h1 class="main-heading">LOST&amp;FOUND</h1>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        {% if success %}
+            <div class="alert alert-success">{{ success }}</div>
+        {% endif %}
+    </div>
+<div class="col-lg-4 right-section">
+        <div class='form-area'>
+            ok
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+{% if stocks %}
+{{stocks}}
+{% endif %}
+    <input type="submit" value="Submit">
+</form>
+        </div>
+    </div>
+</div>
+{% endblock %}
